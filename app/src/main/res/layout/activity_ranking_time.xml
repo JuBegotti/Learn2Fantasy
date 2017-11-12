@@ -6,49 +6,46 @@
     android:layout_height="match_parent"
     tools:context="com.learn2fantasy.learn2fantasy.RankingTimeActivity">
 
-    <android.support.v4.widget.NestedScrollView
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/RankTime_containerBotoes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+        <Button
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:id="@+id/RankTime_pts"
+            android:layout_margin="10dp"
+            android:text="@string/colocacao_pontuacao_string"
+            android:onClick="escolherRank"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent">
+        <Button
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:id="@+id/RankTime_gols"
+            android:layout_margin="10dp"
+            android:text="@string/colocacao_gols_string"
+            android:onClick="escolherRank"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
 
-                <Button
-                    style="@style/Base.Widget.AppCompat.Button.Colored"
-                    android:layout_width="150dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/RankTime_pts"
-                    android:layout_margin="10dp"
-                    android:text="@string/colocacao_pontuacao_string"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
 
-                <Button
-                    style="@style/Base.Widget.AppCompat.Button.Colored"
-                    android:layout_width="150dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/RankTime_gols"
-                    android:layout_margin="10dp"
-                    android:text="@string/colocacao_gols_string"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"/>
+    <ListView
+        android:id="@+id/rankTime_lista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/RankTime_containerBotoes"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
-            </android.support.constraint.ConstraintLayout>
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
 </android.support.constraint.ConstraintLayout>

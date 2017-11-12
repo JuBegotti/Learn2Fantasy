@@ -8,46 +8,35 @@ public class Time {
     private int col_gols;
     private int col_pts;
 
+    Time(int id, String nome, int gols, float pts, int col_pts, int col_gols){
+        this.id = id;
+        this.nome = nome;
+        this.gols = gols;
+        this.pts = pts;
+        this.col_pts = col_pts;
+        this.col_gols = col_gols;
+    }
+
     public int getId() {
         return id;
-    }
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNome() {
         return nome;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public int getGols() {
         return gols;
-    }
-    public void setGols(int gols) {
-        this.gols = gols;
     }
 
     public float getPts() {
         return pts;
     }
-    public void setPts(float pts) {
-        this.pts = pts;
-    }
 
     public int getCol_gols() {
         return col_gols;
     }
-    public void setCol_gols(int col_gols) {
-        this.col_gols = col_gols;
-    }
 
-    public int getCol_pts() {
-        return col_pts;
-    }
-    public void setCol_pts(int col_pts) {
-        this.col_pts = col_pts;
-    }
+    public int getCol_pts() { return col_pts; }
 
 }

@@ -109,35 +109,36 @@ public class BD {
 
         if(cursor.getCount()>0){
             cursor.moveToFirst();
-            resp = new Time();
-            resp.setId(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime._ID)));
-            resp.setNome(cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_NOME)));
-            resp.setGols(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_GOLS)));
-            resp.setPts(cursor.getFloat(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_PTS)));
-            resp.setCol_pts(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_COL_PTS)));
-            resp.setCol_gols(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_COL_GOLS)));
+            resp = new Time(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime._ID)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_NOME)),
+                    cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_GOLS)),
+                    cursor.getFloat(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_PTS)),
+                    cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_COL_PTS)),
+                    cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_COL_GOLS)));
             cursor.close();
         }
         return resp;
     }
 
-    public static List<Time> listaTimes(Context context){
+    public static List<Time> listaTimes(Context context, int col){
         BDHelper bdHelper = new BDHelper(context);
         SQLiteDatabase bd = bdHelper.getReadableDatabase();
-        List<Time> listaTimes = new ArrayList<>();
+        List<Time> listaTimes = null;
 
-        Cursor cursor = bd.rawQuery("SELECT * FROM TIME", null);
+        Cursor cursor;
+        if(col==1) cursor = bd.rawQuery("SELECT * FROM TIME ORDER BY "+BDContract.BDTime.TIME_COL_PTS, null);
+        else cursor = bd.rawQuery("SELECT * FROM TIME ORDER BY "+BDContract.BDTime.TIME_COL_GOLS, null);
 
         if(cursor.getCount()>0){
             cursor.moveToFirst();
+            listaTimes = new ArrayList<>();
             do {
-                Time time = new Time();
-                time.setId(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime._ID)));
-                time.setNome(cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_NOME)));
-                time.setGols(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_GOLS)));
-                time.setPts(cursor.getFloat(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_PTS)));
-                time.setCol_pts(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_COL_PTS)));
-                time.setCol_gols(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_COL_GOLS)));
+                Time time = new Time(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime._ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_NOME)),
+                        cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_GOLS)),
+                        cursor.getFloat(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_PTS)),
+                        cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_COL_PTS)),
+                        cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDTime.TIME_COL_GOLS)));
                 listaTimes.add(time);
             } while (cursor.moveToNext());
             cursor.close();
@@ -151,22 +152,63 @@ public class BD {
         SQLiteDatabase bd = bdHelper.getReadableDatabase();
 
         Cursor cursor = bd.rawQuery(
-                "SELECT * FROM "+ BDContract.BDJogador.JOGADOR + " WHERE " + BDContract.BDJogador.JOGADOR + " = " + jogador, null);
+                "SELECT * FROM "+ BDContract.BDJogador.JOGADOR + " WHERE " + BDContract.BDJogador.JOGADOR + " = '" + jogador +"'", null);
 
         if(cursor.getCount()>0){
             cursor.moveToFirst();
-            resp = new Jogador();
-            resp.setId(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador._ID)));
-            resp.setNome(cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_NOME)));
-            resp.setTime(cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_TIME)));
-            resp.setPosicao(cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_POS)));
-            resp.setJogos(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_JOGOS)));
-            resp.setGols(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_GOLS)));
-            resp.setMinutos(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_MIN)));
-            resp.setPts(cursor.getFloat(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_PTS)));
-            resp.setCol(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_COL)));
+            resp = new Jogador(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador._ID)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_NOME)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_TIME)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_POS)),
+                    cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_JOGOS)),
+                    cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_GOLS)),
+                    cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_MIN)),
+                    cursor.getFloat(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_PTS)),
+                    cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_COL)));
             cursor.close();
         }
         return resp;
+    }
+
+    public static List<Jogador> buscaJogadores(String posicao, Context context){
+        List<Jogador> jogadores = null;
+        BDHelper bdHelper = new BDHelper(context);
+        SQLiteDatabase bd = bdHelper.getReadableDatabase();
+
+        String selection = BDContract.BDJogador.JOGADOR_POS + " = ?";
+        String[] projection = {
+                BDContract.BDJogador._ID,
+                BDContract.BDJogador.JOGADOR_NOME,
+                BDContract.BDJogador.JOGADOR_TIME,
+                BDContract.BDJogador.JOGADOR_POS,
+                BDContract.BDJogador.JOGADOR_JOGOS,
+                BDContract.BDJogador.JOGADOR_GOLS,
+                BDContract.BDJogador.JOGADOR_MIN,
+                BDContract.BDJogador.JOGADOR_PTS,
+                BDContract.BDJogador.JOGADOR_COL
+        };
+        //Cursor cursor = bd.query(BDContract.BDJogador.JOGADOR, projection, selection, null, null, BDContract.BDJogador.JOGADOR_COL);
+        Cursor cursor = bd.rawQuery(
+                "SELECT * FROM "+ BDContract.BDJogador.JOGADOR + " WHERE " + BDContract.BDJogador.JOGADOR_POS + " = '" + posicao + "'", null);
+
+
+        if(cursor.getCount()>0){
+            cursor.moveToFirst();
+            jogadores = new ArrayList<>();
+            do {
+                Jogador jogador = new Jogador(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador._ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_NOME)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_TIME)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_POS)),
+                        cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_JOGOS)),
+                        cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_GOLS)),
+                        cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_MIN)),
+                        cursor.getFloat(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_PTS)),
+                        cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_COL)));
+                jogadores.add(jogador);
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+        return jogadores;
     }
 }

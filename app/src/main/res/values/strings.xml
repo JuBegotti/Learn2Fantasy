@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">Learn2Fantasy</string>
-    <string name="buscar_sting">Buscar</string>
-    <string name="escolher_time_string">Escolha o time:</string>
-    <string name="escolher_jogador_string">Escolha o jogador:</string>
     <string name="null_sting">-</string>
     <string name="grama">grama</string>
     <string name="logo">logo</string>
@@ -17,26 +14,12 @@
     <string name="centroavante_string">Centroavante</string>
     <string name="seg_ata_string">Segundo Atacante</string>
     <string name="gol_string">Goleiro</string>
-    <string name="lat_esq_string">Lateral Esquerda</string>
-    <string name="lat_dir_string">Lateral Direita</string>
+    <string name="lat_esq_string">Lateral Esquerdo</string>
+    <string name="lat_dir_string">Lateral Direito</string>
     <string name="meia_string">Meia</string>
     <string name="voltante_string">Volante</string>
     <string name="seg_vol_string">Segundo Volante</string>
     <string name="zagueiro_string">Zagueiro</string>
-
-    <string name="nome_jogador_string">Nome do jogador</string>
-    <string name="nome_time_string">Nome do time</string>
-    <string name="posicao_string">Posição</string>
-    <string name="partidas_jogadas_string">Partidas jogadas</string>
-    <string name="gols_feitos_string">Gols feitos</string>
-    <string name="minutos_jogados_string">Minutos jogados</string>
-    <string name="pontos_string">Pontos</string>
-    <string name="colocacao_string">Colocação</string>
-    <string name="media_pontuacao_string">Média de pontuação dos jogadores</string>
-    <string name="colocacao_pontuacao_string">Colocação segundo a pontuação dos jogadores</string>
-    <string name="colocacao_gols_string">Colocação segundo o número de gols do time</string>
-    <string name="col_string">º lugar</string>
-    <string name="pts_string">pontos</string>
 
     <string name="aGO_string">Atlético-GO</string>
     <string name="aMG_string">Atlético-MG</string>
@@ -58,4 +41,26 @@
     <string name="sport_string">Sport</string>
     <string name="vasco_string">Vasco</string>
     <string name="vitoria_string">Vitória</string>
+
+    <string name="escolher_time_string">Escolha o time:</string>
+    <string name="escolher_jogador_string">Escolha o jogador:</string>
+    <string name="escolher_pos_string">Escolha a posição:</string>
+    <string name="buscar_sting">Buscar</string>
+    <string name="nome_sting">nome</string>
+    <string name="time_sting">time</string>
+    <string name="col_sting">col.</string>
+    <string name="pts_sting">pts.</string>
+
+    <string name="nome_jogador_string">Nome do jogador</string>
+    <string name="nome_time_string">Nome do time</string>
+    <string name="posicao_string">Posição</string>
+    <string name="partidas_jogadas_string">Partidas jogadas</string>
+    <string name="gols_feitos_string">Gols feitos</string>
+    <string name="minutos_jogados_string">Minutos jogados</string>
+    <string name="pontos_string">Pontos</string>
+    <string name="colocacao_string">Colocação</string>
+    <string name="media_pontuacao_string">Média de pontuação dos jogadores</string>
+    <string name="colocacao_pontuacao_string">Colocação segundo a pontuação dos jogadores</string>
+    <string name="colocacao_gols_string">Colocação segundo o número de gols do time</string>
+
 </resources>
