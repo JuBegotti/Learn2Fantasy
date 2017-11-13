@@ -17,7 +17,6 @@ import java.util.List;
 public class ExibirRankJogadorActivity extends AppCompatActivity {
 
     private TextView pos;
-    List<Jogador> jogadores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +31,8 @@ public class ExibirRankJogadorActivity extends AppCompatActivity {
 
         ListView lista = findViewById(R.id.exiRankJog_list);
         List<Jogador> jogadores = BD.buscaJogadores(pos.getText().toString(),this);
-        AlertDialog.Builder dlg = new AlertDialog.Builder(this);
-        dlg.setTitle("Erro");
-        dlg.setMessage("tam "+jogadores.size());
-        dlg.setNeutralButton("ok",null);
-        dlg.show();
-        //ListViewTimePts adapter = new ListViewTimePts(null, jogadores, this, 0);
-        //lista.setAdapter(adapter);
+        ListViewTimePts adapter = new ListViewTimePts(null, jogadores, this, 0);
+        lista.setAdapter(adapter);
     }
 
     @Override

@@ -152,7 +152,7 @@ public class BD {
         SQLiteDatabase bd = bdHelper.getReadableDatabase();
 
         Cursor cursor = bd.rawQuery(
-                "SELECT * FROM "+ BDContract.BDJogador.JOGADOR + " WHERE " + BDContract.BDJogador.JOGADOR + " = '" + jogador +"'", null);
+                "SELECT * FROM "+ BDContract.BDJogador.JOGADOR + " WHERE " + BDContract.BDJogador.JOGADOR_NOME + " = '" + jogador +"'", null);
 
         if(cursor.getCount()>0){
             cursor.moveToFirst();
@@ -187,10 +187,38 @@ public class BD {
                 BDContract.BDJogador.JOGADOR_PTS,
                 BDContract.BDJogador.JOGADOR_COL
         };
-        //Cursor cursor = bd.query(BDContract.BDJogador.JOGADOR, projection, selection, null, null, BDContract.BDJogador.JOGADOR_COL);
-        Cursor cursor = bd.rawQuery(
-                "SELECT * FROM "+ BDContract.BDJogador.JOGADOR + " WHERE " + BDContract.BDJogador.JOGADOR_POS + " = '" + posicao + "'", null);
 
+        Cursor cursor = bd.rawQuery(
+                "SELECT * FROM "+ BDContract.BDJogador.JOGADOR + " WHERE " + BDContract.BDJogador.JOGADOR_POS + " = '" + posicao + "' ORDER BY "+ BDContract.BDJogador.JOGADOR_COL, null);
+
+
+        if(cursor.getCount()>0){
+            cursor.moveToFirst();
+            jogadores = new ArrayList<>();
+            do {
+                Jogador jogador = new Jogador(cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador._ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_NOME)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_TIME)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_POS)),
+                        cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_JOGOS)),
+                        cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_GOLS)),
+                        cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_MIN)),
+                        cursor.getFloat(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_PTS)),
+                        cursor.getInt(cursor.getColumnIndexOrThrow(BDContract.BDJogador.JOGADOR_COL)));
+                jogadores.add(jogador);
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+        return jogadores;
+    }
+
+    public static List<Jogador> buscaTodosJogadoresOrdenado(String ordenacao, Context context){
+        List<Jogador> jogadores = null;
+        BDHelper bdHelper = new BDHelper(context);
+        SQLiteDatabase bd = bdHelper.getReadableDatabase();
+
+        Cursor cursor = bd.rawQuery(
+                "SELECT * FROM "+ BDContract.BDJogador.JOGADOR + " ORDER BY " + ordenacao, null);
 
         if(cursor.getCount()>0){
             cursor.moveToFirst();

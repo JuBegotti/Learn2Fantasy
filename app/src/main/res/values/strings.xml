@@ -45,11 +45,14 @@
     <string name="escolher_time_string">Escolha o time:</string>
     <string name="escolher_jogador_string">Escolha o jogador:</string>
     <string name="escolher_pos_string">Escolha a posição:</string>
-    <string name="buscar_sting">Buscar</string>
-    <string name="nome_sting">nome</string>
-    <string name="time_sting">time</string>
-    <string name="col_sting">col.</string>
-    <string name="pts_sting">pts.</string>
+    <string name="buscar_string">Buscar</string>
+    <string name="buscar_jogador_time_string">Ordenar por\n time</string>
+    <string name="buscar_jogador_posicao_string">Ordenar por\n posição</string>
+    <string name="nome_string">nome</string>
+    <string name="time_string">time</string>
+    <string name="col_string">col.</string>
+    <string name="pts_string">pts.</string>
+    <string name="gols_string">gols</string>
 
     <string name="nome_jogador_string">Nome do jogador</string>
     <string name="nome_time_string">Nome do time</string>

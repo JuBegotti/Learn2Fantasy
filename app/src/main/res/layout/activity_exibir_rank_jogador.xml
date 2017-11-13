@@ -11,21 +11,23 @@
         android:id="@+id/exiRankJog_pos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/posicao_string"
-        android:textSize="40sp"
-        android:textColor="@color/corDestaque"
-        android:textStyle="bold"
         android:layout_margin="10dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="8dp"
+        android:text="@string/posicao_string"
+        android:textColor="@color/corDestaque"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/exiRankJog_col"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="@string/col_sting"
+        android:text="@string/col_string"
         app:layout_constraintTop_toBottomOf="@+id/exiRankJog_pos"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -34,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="@string/nome_sting"
+        android:text="@string/nome_string"
         app:layout_constraintTop_toBottomOf="@+id/exiRankJog_pos"
         app:layout_constraintLeft_toRightOf="@id/exiRankJog_col"/>
 
@@ -43,25 +45,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="@string/time_sting"
+        android:text="@string/time_string"
         app:layout_constraintTop_toBottomOf="@+id/exiRankJog_pos"
         app:layout_constraintRight_toLeftOf="@id/exiRankJog_pts"/>
 
     <TextView
         android:id="@+id/exiRankJog_pts"
-        android:layout_width="wrap_content"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="@string/pts_sting"
+        android:text="@string/pts_string"
+        android:gravity="end"
         app:layout_constraintTop_toBottomOf="@+id/exiRankJog_pos"
         app:layout_constraintRight_toRightOf="parent"/>
 
-    <ListView
-        android:id="@+id/exiRankJog_list"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/exiRankJog_pts">
+        android:layout_height="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
-    </ListView>
+        <ListView
+            android:id="@+id/exiRankJog_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </ListView>
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

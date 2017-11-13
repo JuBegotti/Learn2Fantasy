@@ -27,12 +27,14 @@ public class ListViewTimePts extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return times.size();
+        if(jogadores==null) return times.size();
+        else return jogadores.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return times.get(position);
+        if(jogadores==null) return times.get(position);
+        else return jogadores.get(position);
     }
 
     @Override
@@ -42,8 +44,9 @@ public class ListViewTimePts extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = act.getLayoutInflater().inflate(R.layout.list_view_time_pts_cont, parent, false);
+        View view;
         if(jogadores==null){
+            view = act.getLayoutInflater().inflate(R.layout.list_view_time_pts_cont, parent, false);
             Time time = times.get(position);
 
             if(cool==1){
@@ -65,17 +68,31 @@ public class ListViewTimePts extends BaseAdapter {
                 gols.setText(Integer.toString(time.getGols()));
             }
         }
-        if(times==null){
-            Jogador jogador = jogadores.get(position);
-            TextView col = (TextView) view.findViewById(R.id.list_exiRankJog_col);
-            TextView nome = (TextView) view.findViewById(R.id.list_exiRankJog_nome);
-            TextView time = (TextView) view.findViewById(R.id.list_exiRankJog_time);
-            TextView pts = (TextView) view.findViewById(R.id.list_exiRankJog_pts);
+        else{
+            if(cool==0){
+                view = act.getLayoutInflater().inflate(R.layout.list_view_jogador_ranking_cont, parent, false);
+                Jogador jogador = jogadores.get(position);
+                TextView col = (TextView) view.findViewById(R.id.list_exiRankJog_col);
+                TextView nome = (TextView) view.findViewById(R.id.list_exiRankJog_nome);
+                TextView time = (TextView) view.findViewById(R.id.list_exiRankJog_time);
+                TextView pts = (TextView) view.findViewById(R.id.list_exiRankJog_pts);
 
-            col.setText(Integer.toString(jogador.getCol()));
-            nome.setText(jogador.getNome());
-            time.setText(jogador.getTime());
-            pts.setText(Float.toString(jogador.getPts()));
+                col.setText(Integer.toString(jogador.getCol()));
+                nome.setText(jogador.getNome());
+                time.setText(jogador.getTime());
+                pts.setText(Float.toString(jogador.getPts()));
+            }
+            else{
+                view = act.getLayoutInflater().inflate(R.layout.list_view_escolher_jogadores_ordenado, parent, false);
+                Jogador jogador = jogadores.get(position);
+                TextView nome = (TextView) view.findViewById(R.id.listViewJogOrd_nome);
+                TextView time = (TextView) view.findViewById(R.id.listViewJogOrd_time);
+                TextView pos = (TextView) view.findViewById(R.id.listViewJogOrd_pos);
+
+                nome.setText(jogador.getNome());
+                time.setText(jogador.getTime());
+                pos.setText(jogador.getpPosicao());
+            }
         }
         return view;
     }

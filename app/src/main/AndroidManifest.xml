@@ -22,7 +22,8 @@
         <activity android:name=".InfoJogadorActivity" />
         <activity android:name=".RankingTimeActivity" />
         <activity android:name=".RankJogadorActivity" />
-        <activity android:name=".ExibirRankJogadorActivity"></activity>
+        <activity android:name=".ExibirRankJogadorActivity" />
+        <activity android:name=".ExibirInfoJogadorActivity"></activity>
     </application>
 
 </manifest>
