@@ -21,9 +21,9 @@ public class MenuActivity extends AppCompatActivity {
             case R.id.menu_infoJog : intent = new Intent(this, InfoJogadorActivity.class); break;
             case R.id.menu_rankTimes : intent = new Intent(this, RankingTimeActivity.class); break;
             case R.id.menu_rankJog : intent = new Intent(this, RankJogadorActivity.class); break;
-            case R.id.menu_compTimes : return;
-            case R.id.menu_compJog : return;
-            default : intent = null; break;
+            case R.id.menu_compTimes : intent = new Intent(this, CompararTimesActivity.class); break;
+            case R.id.menu_compJog : intent = new Intent(this, CompararJogadoresActivity.class); break;
+            default : return;
         }
         startActivity(intent);
     }

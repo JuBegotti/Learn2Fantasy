@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.learn2fantasy.learn2fantasy.RankJogadorActivity">
+    tools:context="com.learn2fantasy.learn2fantasy.CompararJogadoresActivity">
 
     <TextView
-        android:id="@+id/rankJog_titulo"
+        android:id="@+id/compJog_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/escolher_pos_string"
@@ -21,104 +21,104 @@
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:id="@+id/rankJog_gol"
+        android:id="@+id/compJog_gol"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="@string/gol_string"
         android:layout_margin="10dp"
-        android:onClick="escolherRank"
-        app:layout_constraintTop_toBottomOf="@id/rankJog_titulo"
+        android:onClick="escolherPos"
+        app:layout_constraintTop_toBottomOf="@id/compJog_titulo"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:id="@+id/rankJog_zag"
+        android:id="@+id/compJog_zag"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="@string/zagueiro_string"
         android:layout_margin="10dp"
-        android:onClick="escolherRank"
-        app:layout_constraintTop_toBottomOf="@id/rankJog_gol"
+        android:onClick="escolherPos"
+        app:layout_constraintTop_toBottomOf="@id/compJog_gol"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:id="@+id/rankJog_lae"
+        android:id="@+id/compJog_lae"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="@string/lat_esq_string"
         android:layout_margin="10dp"
-        android:onClick="escolherRank"
-        app:layout_constraintTop_toBottomOf="@id/rankJog_zag"
+        android:onClick="escolherPos"
+        app:layout_constraintTop_toBottomOf="@id/compJog_zag"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:id="@+id/rankJog_lad"
+        android:id="@+id/compJog_lad"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="@string/lat_dir_string"
         android:layout_margin="10dp"
-        android:onClick="escolherRank"
-        app:layout_constraintTop_toBottomOf="@id/rankJog_zag"
+        android:onClick="escolherPos"
+        app:layout_constraintTop_toBottomOf="@id/compJog_zag"
         app:layout_constraintRight_toRightOf="parent"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:id="@+id/rankJog_vol"
+        android:id="@+id/compJog_vol"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="@string/voltante_string"
         android:layout_margin="10dp"
-        android:onClick="escolherRank"
-        app:layout_constraintTop_toBottomOf="@id/rankJog_lae"
+        android:onClick="escolherPos"
+        app:layout_constraintTop_toBottomOf="@id/compJog_lae"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:id="@+id/rankJog_2vol"
+        android:id="@+id/compJog_2vol"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="@string/seg_vol_string"
         android:layout_margin="10dp"
-        android:onClick="escolherRank"
-        app:layout_constraintTop_toBottomOf="@id/rankJog_lad"
+        android:onClick="escolherPos"
+        app:layout_constraintTop_toBottomOf="@id/compJog_lad"
         app:layout_constraintRight_toRightOf="parent"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:id="@+id/rankJog_meia"
+        android:id="@+id/compJog_meia"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="@string/meia_string"
         android:layout_margin="10dp"
-        android:onClick="escolherRank"
-        app:layout_constraintTop_toBottomOf="@id/rankJog_vol"
+        android:onClick="escolherPos"
+        app:layout_constraintTop_toBottomOf="@id/compJog_vol"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:id="@+id/rankJog_cent"
+        android:id="@+id/compJog_cent"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="@string/centroavante_string"
         android:layout_margin="10dp"
-        android:onClick="escolherRank"
-        app:layout_constraintTop_toBottomOf="@id/rankJog_meia"
+        android:onClick="escolherPos"
+        app:layout_constraintTop_toBottomOf="@id/compJog_meia"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <Button
         style="@style/Base.Widget.AppCompat.Button.Colored"
-        android:id="@+id/rankJog_2at"
+        android:id="@+id/compJog_2at"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="@string/seg_ata_string"
         android:layout_margin="10dp"
-        android:onClick="escolherRank"
-        app:layout_constraintTop_toBottomOf="@id/rankJog_meia"
+        android:onClick="escolherPos"
+        app:layout_constraintTop_toBottomOf="@id/compJog_meia"
         app:layout_constraintRight_toRightOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>

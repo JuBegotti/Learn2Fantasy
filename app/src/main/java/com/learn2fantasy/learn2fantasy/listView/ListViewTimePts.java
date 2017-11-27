@@ -46,9 +46,14 @@ public class ListViewTimePts extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View view;
         if(jogadores==null){
-            view = act.getLayoutInflater().inflate(R.layout.list_view_time_pts_cont, parent, false);
+            if(cool==0) view = act.getLayoutInflater().inflate(R.layout.list_view_checkbox_time, parent, false);
+            else view = act.getLayoutInflater().inflate(R.layout.list_view_time_pts_cont, parent, false);
             Time time = times.get(position);
 
+            if(cool==0){
+                TextView nome = (TextView) view.findViewById(R.id.listViewCheckTime_nome);
+                nome.setText(time.getNome());
+            }
             if(cool==1){
                 TextView col = (TextView) view.findViewById(R.id.listViewPtsCont_pos);
                 TextView nome = (TextView) view.findViewById(R.id.listViewPtsCont_nome);
@@ -58,7 +63,7 @@ public class ListViewTimePts extends BaseAdapter {
                 nome.setText(time.getNome());
                 pts.setText(Float.toString(time.getPts()));
             }
-            else{
+            if(cool==2){
                 TextView col = (TextView) view.findViewById(R.id.listViewPtsCont_pos);
                 TextView nome = (TextView) view.findViewById(R.id.listViewPtsCont_nome);
                 TextView gols = (TextView) view.findViewById(R.id.listViewPtsCont_pts);
@@ -67,6 +72,7 @@ public class ListViewTimePts extends BaseAdapter {
                 nome.setText(time.getNome());
                 gols.setText(Integer.toString(time.getGols()));
             }
+            else return null;
         }
         else{
             if(cool==0){

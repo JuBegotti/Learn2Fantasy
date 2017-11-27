@@ -42,7 +42,7 @@ public class RankJogadorActivity extends AppCompatActivity {
             case R.id.rankJog_vol : pos = getString(R.string.voltante_string); break;
             case R.id.rankJog_2vol : pos = getString(R.string.seg_vol_string); break;
             case R.id.rankJog_zag : pos = getString(R.string.zagueiro_string); break;
-            default : pos = "null"; break;
+            default : return;
         }
         Intent intent = new Intent(this, ExibirRankJogadorActivity.class);
         intent.putExtra("posicao", pos);

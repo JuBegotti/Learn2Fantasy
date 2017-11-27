@@ -126,7 +126,8 @@ public class BD {
         List<Time> listaTimes = null;
 
         Cursor cursor;
-        if(col==1) cursor = bd.rawQuery("SELECT * FROM TIME ORDER BY "+BDContract.BDTime.TIME_COL_PTS, null);
+        if(col==0) cursor = bd.rawQuery("SELECT * FROM TIME", null);
+        else if(col==1) cursor = bd.rawQuery("SELECT * FROM TIME ORDER BY "+BDContract.BDTime.TIME_COL_PTS, null);
         else cursor = bd.rawQuery("SELECT * FROM TIME ORDER BY "+BDContract.BDTime.TIME_COL_GOLS, null);
 
         if(cursor.getCount()>0){

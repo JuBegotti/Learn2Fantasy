@@ -48,11 +48,18 @@
     <string name="buscar_string">Buscar</string>
     <string name="buscar_jogador_time_string">Ordenar por\n time</string>
     <string name="buscar_jogador_posicao_string">Ordenar por\n posição</string>
+    <string name="escolher_times_string">Escolha dois times para serem comparados:</string>
+    <string name="escolher_jogadores_string">Escolha dois jogadores para serem comparados:</string>
+    <string name="comparar_string">Comparar</string>
     <string name="nome_string">nome</string>
     <string name="time_string">time</string>
     <string name="col_string">col.</string>
     <string name="pts_string">pts.</string>
     <string name="gols_string">gols</string>
+    <string name="colPts_string">col. pts.</string>
+    <string name="colGols_string">col. gols</string>
+    <string name="jogos_string">jogos</string>
+    <string name="minutos_string">min.</string>
 
     <string name="nome_jogador_string">Nome do jogador</string>
     <string name="nome_time_string">Nome do time</string>
