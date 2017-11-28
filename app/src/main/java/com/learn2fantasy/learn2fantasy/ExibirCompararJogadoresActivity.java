@@ -79,7 +79,7 @@ public class ExibirCompararJogadoresActivity extends AppCompatActivity {
     private void getValues(){
         nome1.setText(jogador1.getNome());
         nome2.setText(jogador2.getNome());
-        time1.setText(jogador1.getNome());
+        time1.setText(jogador1.getTime());
         time2.setText(jogador2.getTime());
         colpts1.setText(Integer.toString(jogador1.getCol()));
         colpts2.setText(Integer.toString(jogador2.getCol()));
