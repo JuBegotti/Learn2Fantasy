@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.learn2fantasy.learn2fantasy.bd.BD;
 import com.learn2fantasy.learn2fantasy.bd.Jogador;
 
 public class ExibirCompararJogadoresActivity extends AppCompatActivity {
@@ -26,11 +27,8 @@ public class ExibirCompararJogadoresActivity extends AppCompatActivity {
     private TextView min2;
     Jogador jogador1;
     Jogador jogador2;
-
-//    ExibirCompararJogadoresActivity(Jogador jogador1, Jogador jogador2){
-//        this.jogador1 = jogador1;
-//        this.jogador2 = jogador2;
-//    }
+    String jogador1string;
+    String jogador2string;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +38,11 @@ public class ExibirCompararJogadoresActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle(getString(R.string.comparar_jogador_string));
 
+        jogador1string = getIntent().getStringExtra("jogador1");
+        jogador2string = getIntent().getStringExtra("jogador2");
+        jogador1 = BD.buscaJogador(jogador1string,this);
+        jogador2 = BD.buscaJogador(jogador2string,this);
+
         initViews();
         getValues();
     }
@@ -47,7 +50,9 @@ public class ExibirCompararJogadoresActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                startActivity(new Intent(this, EscolherJogadorCompararActivity.class));
+                Intent intent = new Intent(this, EscolherJogadorCompararActivity.class);
+                intent.putExtra("posicao",jogador1.getpPosicao());
+                startActivity(intent);
                 break;
             default:break;
         }
@@ -76,15 +81,15 @@ public class ExibirCompararJogadoresActivity extends AppCompatActivity {
         nome2.setText(jogador2.getNome());
         time1.setText(jogador1.getNome());
         time2.setText(jogador2.getTime());
-        colpts1.setText(jogador1.getCol());
-        colpts2.setText(jogador2.getCol());
+        colpts1.setText(Integer.toString(jogador1.getCol()));
+        colpts2.setText(Integer.toString(jogador2.getCol()));
         pts1.setText(Float.toString(jogador1.getPts()));
         pts2.setText(Float.toString(jogador2.getPts()));
-        jogos1.setText(jogador1.getJogos());
-        jogos2.setText(jogador2.getJogos());
-        gols1.setText(jogador1.getGols());
-        gols2.setText(jogador2.getGols());
-        min1.setText(jogador1.getMinutos());
-        min2.setText(jogador2.getMinutos());
+        jogos1.setText(Integer.toString(jogador1.getJogos()));
+        jogos2.setText(Integer.toString(jogador2.getJogos()));
+        gols1.setText(Integer.toString(jogador1.getGols()));
+        gols2.setText(Integer.toString(jogador2.getGols()));
+        min1.setText(Integer.toString(jogador1.getMinutos()));
+        min2.setText(Integer.toString(jogador2.getMinutos()));
     }
 }

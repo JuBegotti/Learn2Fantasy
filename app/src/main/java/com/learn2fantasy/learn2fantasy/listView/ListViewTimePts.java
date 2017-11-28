@@ -54,7 +54,7 @@ public class ListViewTimePts extends BaseAdapter {
                 TextView nome = (TextView) view.findViewById(R.id.listViewCheckTime_nome);
                 nome.setText(time.getNome());
             }
-            if(cool==1){
+            else if(cool==1){
                 TextView col = (TextView) view.findViewById(R.id.listViewPtsCont_pos);
                 TextView nome = (TextView) view.findViewById(R.id.listViewPtsCont_nome);
                 TextView pts = (TextView) view.findViewById(R.id.listViewPtsCont_pts);
@@ -63,7 +63,7 @@ public class ListViewTimePts extends BaseAdapter {
                 nome.setText(time.getNome());
                 pts.setText(Float.toString(time.getPts()));
             }
-            if(cool==2){
+            else if(cool==2){
                 TextView col = (TextView) view.findViewById(R.id.listViewPtsCont_pos);
                 TextView nome = (TextView) view.findViewById(R.id.listViewPtsCont_nome);
                 TextView gols = (TextView) view.findViewById(R.id.listViewPtsCont_pts);
@@ -88,7 +88,7 @@ public class ListViewTimePts extends BaseAdapter {
                 time.setText(jogador.getTime());
                 pts.setText(Float.toString(jogador.getPts()));
             }
-            else{
+            else if(cool==1){
                 view = act.getLayoutInflater().inflate(R.layout.list_view_escolher_jogadores_ordenado, parent, false);
                 Jogador jogador = jogadores.get(position);
                 TextView nome = (TextView) view.findViewById(R.id.listViewJogOrd_nome);
@@ -99,6 +99,13 @@ public class ListViewTimePts extends BaseAdapter {
                 time.setText(jogador.getTime());
                 pos.setText(jogador.getpPosicao());
             }
+            else if(cool==2){
+                view = act.getLayoutInflater().inflate(R.layout.list_view_checkbox_time, parent, false);
+                Jogador jogador = jogadores.get(position);
+                TextView nome = (TextView) view.findViewById(R.id.listViewCheckTime_nome);
+                nome.setText(jogador.getNome());
+            }
+            else return null;
         }
         return view;
     }

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.learn2fantasy.learn2fantasy.bd.BD;
 import com.learn2fantasy.learn2fantasy.bd.BDContract;
 import com.learn2fantasy.learn2fantasy.bd.Time;
 
@@ -23,11 +24,8 @@ public class ExibirComparacaoTimeActivity extends AppCompatActivity {
     private TextView gols2;
     Time time1;
     Time time2;
-
-//    ExibirComparacaoTimeActivity(Time time1, Time time2){
-//        this.time1 = time1;
-//        this.time2 = time2;
-//    }
+    String time1string;
+    String time2string;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +34,11 @@ public class ExibirComparacaoTimeActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle(getString(R.string.comparar_time_string));
+
+        time1string = getIntent().getStringExtra("time1");
+        time2string = getIntent().getStringExtra("time2");
+        time1 = BD.buscaTime(time1string,this);
+        time2 = BD.buscaTime(time2string,this);
 
         initViews();
         getValues();
@@ -67,13 +70,13 @@ public class ExibirComparacaoTimeActivity extends AppCompatActivity {
     private void getValues(){
         nome1.setText(time1.getNome());
         nome2.setText(time2.getNome());
-        colpts1.setText(time1.getCol_pts());
-        colpts2.setText(time2.getCol_pts());
+        colpts1.setText(Integer.toString(time1.getCol_pts()));
+        colpts2.setText(Integer.toString(time2.getCol_pts()));
         pts1.setText(Float.toString(time1.getPts()));
         pts2.setText(Float.toString(time2.getPts()));
-        gols1.setText(time1.getGols());
-        gols2.setText(time2.getGols());
-        colgols1.setText(time1.getCol_gols());
-        colgols2.setText(time2.getCol_gols());
+        gols1.setText(Integer.toString(time1.getGols()));
+        gols2.setText(Integer.toString(time2.getGols()));
+        colgols1.setText(Integer.toString(time1.getCol_gols()));
+        colgols2.setText(Integer.toString(time2.getCol_gols()));
     }
 }

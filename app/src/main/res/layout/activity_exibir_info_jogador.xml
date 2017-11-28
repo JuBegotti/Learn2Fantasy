@@ -40,7 +40,7 @@
                     android:id="@+id/exibirInfoJog_nomeJog"
                     android:text="@string/nome_jogador_string"
                     android:textColor="@color/corDestaque"
-                    android:textSize="30sp"
+                    android:textSize="40sp"
                     android:textStyle="bold"
                     android:gravity="center"
                     android:layout_margin="10dp"

@@ -60,6 +60,9 @@
     <string name="colGols_string">col. gols</string>
     <string name="jogos_string">jogos</string>
     <string name="minutos_string">min.</string>
+    <string name="selecione_string">Selecione</string>
+    <string name="times_a_serem_comparados_string">Times a serem comparados:</string>
+    <string name="jogadores_a_serem_comparados_string">Jogadores a serem comparados:</string>
 
     <string name="nome_jogador_string">Nome do jogador</string>
     <string name="nome_time_string">Nome do time</string>

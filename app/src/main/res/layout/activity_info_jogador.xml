@@ -10,7 +10,7 @@
     <SearchView
         android:id="@+id/infoJog_search"
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_margin="10dp"
         android:inputType="text"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,7 +21,7 @@
         style="@style/Base.Widget.AppCompat.Button.Colored"
         android:id="@+id/infoJog_searchBot"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:layout_margin="10dp"
         android:text="@string/buscar_string"
         android:onClick="botBusca"
